@@ -1,0 +1,43 @@
+<svg width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+    <!-- Simbolo del fiume in cerchio -->
+    <g transform="translate(30,30)">
+        <!-- Cerchio esterno -->
+        <circle cx="30" cy="30" r="28" 
+                fill="none" 
+                stroke="#0066CC" 
+                stroke-width="3"/>
+        
+        <!-- Fiume stilizzato principale -->
+        <path d="M15 30 C20 20, 30 15, 45 30 C30 45, 20 40, 15 30" 
+              fill="none" 
+              stroke="#0066CC" 
+              stroke-width="4" 
+              stroke-linecap="round"/>
+        
+        <!-- Dettaglio fiume secondario -->
+        <path d="M20 30 C25 25, 35 25, 40 30" 
+              fill="none" 
+              stroke="#01487E" 
+              stroke-width="2" 
+              stroke-linecap="round" 
+              opacity="0.8"/>
+    </g>
+    
+    <!-- Testo del logo come un unico gruppo per mantenere la coesione -->
+    <g font-family="Arial, sans-serif" font-size="52" font-weight="800">
+        <text x="100" y="60">
+            <tspan fill="#0066CC">a</tspan>
+        </text>
+        <text x="135" y="60" fill="#17324D">ril</text>
+    </g>
+    
+    <!-- Sottotitolo -->
+    <text x="103" y="80" 
+          font-family="Arial, sans-serif" 
+          font-size="16" 
+          font-weight="500" 
+          letter-spacing="4" 
+          fill="#5C6F82">
+        SOLUZIONI
+    </text>
+</svg>

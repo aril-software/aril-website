@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aril - Soluzioni Innovative per la Polizia Locale</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-container"></div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="fade-in">
+                    <h1>Innovazione nella gestione<br>della Polizia Locale</h1>
+                    <p>Soluzioni software avanzate per la digitalizzazione<br>dei processi amministrativi</p>
+                    <a href="#contact" class="btn btn-primary">Scopri di più</a>
+                </div>
+            </div>
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="../assets/videos/city.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Le Nostre Soluzioni</h2>
+                <div class="grid grid-3">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3>Efficienza Operativa</h3>
+                        <p>Ottimizzazione dei processi e riduzione dei tempi di gestione</p>
+                    </div>
+                    <!-- More feature cards... -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Comuni Serviti</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">1M+</div>
+                        <div class="stat-label">Pratiche Gestite</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat-item fade-in">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Supporto</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load header and footer
+        fetch('../components/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-container').innerHTML = data;
+            });
+
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-container').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
