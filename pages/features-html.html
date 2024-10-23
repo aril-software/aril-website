@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caratteristiche - aril</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/features.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main>
+        <section class="features-hero">
+            <div class="container">
+                <h1 class="section-title fade-in">Caratteristiche</h1>
+                <p class="section-subtitle fade-in">
+                    Scopri tutte le funzionalità che rendono i nostri prodotti unici
+                </p>
+            </div>
+        </section>
+
+        <!-- Digital Transformation -->
+        <section class="feature-block">
+            <div class="container">
+                <div class="feature-content fade-in">
+                    <div class="feature-image">
+                        <img src="/api/placeholder/800/600" alt="Trasformazione Digitale">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="feature-title">Trasformazione Digitale</h2>
+                        <p class="feature-description">
+                            Digitalizzazione completa dei processi della Pubblica Amministrazione con soluzioni innovative e integrate.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Workflow digitali personalizzabili</li>
+                            <li>Integrazione con sistemi esistenti</li>
+                            <li>Riduzione tempi di gestione</li>
+                            <li>Eliminazione del cartaceo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Analytics -->
+        <section class="feature-block">
+            <div class="container">
+                <div class="feature-content fade-in">
+                    <div class="feature-image">
+                        <img src="/api/placeholder/800/600" alt="Analytics Avanzate">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="feature-title">Analytics Avanzate</h2>
+                        <p class="feature-description">
+                            Analisi dati in tempo reale per decisioni informate e strategiche.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Dashboard personalizzabili</li>
+                            <li>Report automatici</li>
+                            <li>Analisi predittive</li>
+                            <li>KPI in tempo reale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security -->
+        <section class="feature-block">
+            <div class="container">
+                <div class="feature-content fade-in">
+                    <div class="feature-image">
+                        <img src="/api/placeholder/800/600" alt="Sicurezza">
+                    </div>
+                    <div class="feature-text">
+                        <h2 class="feature-title">Sicurezza Avanzata</h2>
+                        <p class="feature-description">
+                            Massimi standard di sicurezza per la protezione dei dati sensibili.
+                        </p>
+                        <ul class="feature-list">
+                            <li>Crittografia end-to-end</li>
+                            <li>Conformità GDPR</li>
+                            <li>Autenticazione multi-fattore</li>
+                            <li>Backup automatici</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Load components
+        ['header', 'footer'].forEach(component => {
+            fetch(`../components/${component}.html`)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(`${component}-container`).innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aril - Soluzioni Innovative per la Polizia Locale</title>
+    <!-- CSS imports -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/pages/home.css">
+</head>
+
+<body>
+    <!-- Header Component -->
+    <div id="header-container"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="fade-in">
+                    <h1>Innovazione nella gestione<br>della Polizia Locale</h1>
+                    <p>Soluzioni software avanzate per la digitalizzazione<br>dei processi amministrativi</p>
+                    <a href="#contact" class="btn btn-primary">Scopri di più</a>
+                </div>
+            </div>
+            <div class="hero-background">
+                <img src="assets/images/city-pattern.svg" alt="City Pattern" class="city-pattern">
+            </div>
+        </section>
+
+        <!-- Featured Products Section -->
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">I Nostri Prodotti</h2>
+                <div class="product-grid">
+                    <!-- Fines -->
+                    <div class="product-card fade-in">
+                        <img src="assets/images/fines.svg" alt="Fines" class="product-image">
+                        <div class="product-content">
+                            <h3>Fines</h3>
+                            <p>Gestione completa delle sanzioni amministrative</p>
+                            <a href="pages/products.html#fines" class="btn btn-outline">Scopri di più</a>
+                        </div>
+                    </div>
+                    <!-- Management -->
+                    <div class="product-card fade-in">
+                        <img src="assets/images/management.svg" alt="Management" class="product-image">
+                        <div class="product-content">
+                            <h3>Management</h3>
+                            <p>Gestione efficiente delle risorse e dei processi</p>
+                            <a href="pages/products.html#management" class="btn btn-outline">Scopri di più</a>
+                        </div>
+                    </div>
+                    <!-- Analytics -->
+                    <div class="product-card fade-in">
+                        <img src="assets/images/analytics.svg" alt="Analytics" class="product-image">
+                        <div class="product-content">
+                            <h3>Analytics</h3>
+                            <p>Analisi avanzata dei dati e reportistica</p>
+                            <a href="pages/products.html#analytics" class="btn btn-outline">Scopri di più</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Contattaci</h2>
+                <div class="contact-grid">
+                    <div class="contact-info fade-in">
+                        <h3>Informazioni di Contatto</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <strong>Email:</strong>
+                                <a href="mailto:info@aril.it">info@aril.it</a>
+                            </li>
+                            <li>
+                                <strong>Telefono:</strong>
+                                <a href="tel:+39XXXXXXXXXX">+39 XXX XXX XXXX</a>
+                            </li>
+                            <li>
+                                <strong>Indirizzo:</strong>
+                                <address>Via Example, 123<br>Città, Provincia</address>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="contact-form-container fade-in">
+                        <h3>Invia un Messaggio</h3>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Oggetto</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Messaggio</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Invia Messaggio</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer-container"></div>
+
+    <!-- JavaScript imports -->
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
