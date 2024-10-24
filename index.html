@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aril - Soluzioni Innovative per la Polizia Locale</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <!-- CSS imports -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/components/header.css">
@@ -20,15 +23,43 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container hero-content">
-                <div class="fade-in">
-                    <h1>Innovazione nella gestione<br>della Polizia Locale</h1>
-                    <p>Soluzioni software avanzate per la digitalizzazione<br>dei processi amministrativi</p>
-                    <a href="#contact" class="btn btn-primary">Scopri di più</a>
-                </div>
-            </div>
             <div class="hero-background">
-                <img src="assets/images/city-pattern.svg" alt="City Pattern" class="city-pattern">
+                <img src="assets/images/city-map.svg" alt="City Map" class="city-pattern">
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-flex">
+                        <div class="hero-text">
+                            <h1>Innovazione nella gestione<br>della Polizia Locale</h1>
+                            <p>Soluzioni software avanzate per la digitalizzazione<br>dei processi amministrativi</p>
+                            <a href="#contact" class="btn btn-primary">Scopri di più</a>
+                        </div>
+                        <div class="hero-video">
+                            <div class="video-carousel">
+                                <div class="video-container awaiting-interaction">
+                                    <div class="video-background"></div>
+                                    <video id="showcase-video" muted playsinline preload="metadata">
+                                        <source src="assets/videos/305525689519153156.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-overlay">
+                                        <button class="play-button" aria-label="Play video">▶</button>
+                                    </div>
+                                </div>
+                                <div class="video-controls">
+                                    <button class="video-nav prev" aria-label="Video precedente">&#10094;</button>
+                                    <div class="video-indicators">
+                                        <span class="indicator active"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                        <span class="indicator"></span>
+                                    </div>
+                                    <button class="video-nav next" aria-label="Video successivo">&#10095;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -123,6 +154,7 @@
     <!-- JavaScript imports -->
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/video-carousel.js"></script>
 </body>
 
 </html>

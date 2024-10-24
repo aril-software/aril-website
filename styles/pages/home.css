@@ -1,59 +1,242 @@
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.2;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    margin-bottom: 80px;
+    /* Aggiungo spazio dopo la hero section */
 }
 
 .hero-background {
     position: absolute;
+    /* Cambiato da fixed a absolute */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
+    background-color: #f5f5f5;
 }
 
 .city-pattern {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    opacity: 0.3;
+    transform: scale(1.1);
+    filter: contrast(0.9) brightness(1.1);
 }
 
-.hero::after {
-    content: '';
+.hero-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.hero-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 6rem;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+    padding-top: 4rem;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-align: left;
+    font-weight: 600;
+}
+
+.hero-text p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.hero-video {
+    flex: 0 0 600px;
+    margin-top: 2rem;
+}
+
+/* Video Carousel */
+.video-carousel {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+    z-index: 1;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-container:not(.awaiting-interaction) video {
+    opacity: 1;
+}
+
+.video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-container.awaiting-interaction .video-overlay {
+    opacity: 1;
+}
+
+.play-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    color: #007bff;
+    font-size: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    padding-left: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+}
+
+.play-button:hover {
+    transform: scale(1.1);
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.video-controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.video-nav {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #007bff;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.video-nav:hover {
+    color: #0056b3;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.video-indicators {
+    display: flex;
+    gap: 0.8rem;
+    margin: 0 1.5rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.indicator:hover {
+    transform: scale(1.2);
+    background: #999;
+    opacity: 0.8;
+}
+
+.indicator.active {
+    background: #007bff;
+    transform: scale(1.2);
+    opacity: 1;
 }
 
 /* Products Section */
+.section {
+    position: relative;
+    /* Aggiunto */
+    padding: 80px 0;
+    background: white;
+    z-index: 3;
+    /* Aggiunto */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem;
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -102,8 +285,12 @@
 
 /* Contact Section */
 .contact-section {
+    position: relative;
+    /* Aggiunto */
     background-color: #f8f9fa;
     padding: 80px 0;
+    z-index: 3;
+    /* Aggiunto */
 }
 
 .contact-grid {
@@ -191,13 +378,74 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+    .container {
+        padding: 0 3rem;
+    }
+
+    .hero-flex {
+        gap: 4rem;
+    }
+
+    .hero-video {
+        flex: 0 0 500px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1.2rem;
+    }
+
+    .hero-video {
+        flex: 0 0 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .hero-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-top: 0;
+    }
+
+    .hero-text h1,
+    .hero-text p {
+        text-align: center;
+    }
+
+    .hero-video {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 600px;
+        margin-top: 0;
+    }
+}
+
 @media (max-width: 768px) {
-    .hero h1 {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-text h1 {
         font-size: 2.5rem;
     }
 
-    .hero p {
-        font-size: 1.2rem;
+    .hero-text p {
+        font-size: 1.1rem;
     }
 
     .product-grid {

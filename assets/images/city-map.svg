@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="100%" height="100%" fill="#f3f1ed"/>
+    
+    <!-- Pattern di sfondo stile mappa -->
+    <defs>
+        <pattern id="map-grid" width="100" height="100" patternUnits="userSpaceOnUse">
+            <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#e6e3df" stroke-width="0.5"/>
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#map-grid)"/>
+
+    <!-- Strade principali -->
+    <g stroke="#ffffff" stroke-width="8">
+        <path d="M 0,300 L 1920,300" fill="none"/>
+        <path d="M 0,700 L 1920,700" fill="none"/>
+        <path d="M 500,0 L 500,1080" fill="none"/>
+        <path d="M 1200,0 L 1200,1080" fill="none"/>
+    </g>
+
+    <!-- Strade secondarie -->
+    <g stroke="#ffffff" stroke-width="4">
+        <path d="M 0,500 L 1920,500" fill="none"/>
+        <path d="M 800,0 L 800,1080" fill="none"/>
+        <path d="M 1500,0 L 1500,1080" fill="none"/>
+    </g>
+
+    <!-- Aree verdi -->
+    <g fill="#e8f5e9" stroke="#c8e6c9" stroke-width="1">
+        <rect x="100" y="400" width="300" height="200"/>
+        <rect x="900" y="200" width="200" height="400"/>
+        <rect x="1300" y="600" width="250" height="250"/>
+        <circle cx="600" cy="800" r="100"/>
+        <circle cx="1600" cy="300" r="150"/>
+    </g>
+
+    <!-- Aree edificate -->
+    <g fill="#eeeeee" stroke="#e0e0e0" stroke-width="1">
+        <rect x="150" y="150" width="200" height="100"/>
+        <rect x="550" y="450" width="150" height="150"/>
+        <rect x="1250" y="250" width="180" height="120"/>
+        <rect x="950" y="750" width="160" height="160"/>
+        <rect x="1450" y="450" width="200" height="100"/>
+        <rect x="700" y="150" width="140" height="140"/>
+    </g>
+
+    <!-- Etichette strade -->
+    <g fill="#666" font-family="Arial" font-size="12">
+        <text x="510" y="290" transform="rotate(-90 510,290)">Via Roma</text>
+        <text x="1210" y="290" transform="rotate(-90 1210,290)">Via Milano</text>
+        <text x="10" y="295">Corso Italia</text>
+        <text x="10" y="695">Viale Europa</text>
+    </g>
+
+    <!-- POI (Points of Interest) -->
+    <g fill="#4285f4">
+        <circle cx="300" cy="200" r="4"/>
+        <circle cx="700" cy="600" r="4"/>
+        <circle cx="1100" cy="400" r="4"/>
+        <circle cx="1500" cy="800" r="4"/>
+    </g>
+</svg>

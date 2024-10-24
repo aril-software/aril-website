@@ -11,6 +11,11 @@ body {
     color: #333;
 }
 
+main {
+    padding-top: 80px;
+    /* Aumentato da 72px a 80px per dare più spazio all'header */
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
