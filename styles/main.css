@@ -6,9 +6,10 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Changed to Roboto for better readability */
     line-height: 1.6;
-    color: #333;
+    color: #333; 
+    background-color: #f4f4f4; /* Light gray background for better contrast */
 }
 
 main {
@@ -32,14 +33,17 @@ main {
 }
 
 .btn-primary {
-    background-color: #007bff;
-    color: white;
+    background-color: #004080; /* Deep blue for authority */
+    color: #fff;
+    border: none;
 }
 
 .btn-outline {
-    border: 2px solid #007bff;
-    color: #007bff;
+    border: 2px solid #004080; /* Deep blue border */
+    color: #004080;
+    background-color: transparent;
 }
+
 
 /* Sezioni */
 .section {
@@ -47,8 +51,10 @@ main {
 }
 
 .section-title {
-    text-align: center;
-    margin-bottom: 40px;
+    text-align: left; /* Aligned to left for better visual flow */
+    margin-bottom: 30px;
+    font-size: 2.5rem; /* Increased font size for prominence */
+    color: #212529; /* Dark gray for headings */
 }
 
 /* Animazioni */
@@ -65,4 +71,26 @@ main {
     to {
         opacity: 1;
     }
+
+/* Header Style */
+header {
+    background-color: #343a40; /* Dark gray background */
+    color: #fff;
+    padding: 15px 0;
+    position: fixed; 
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
 }

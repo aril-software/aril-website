@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicators = document.querySelectorAll('.indicator');
 
     let currentVideoIndex = 0;
-    let autoplayInterval;
-    let isPlaying = false;
+    let autoplayTimeout;
+    let isPlaying = true; // Inizializza isPlaying a true per l'autoplay iniziale
     let isLoading = false;
 
     // Funzione per costruire il percorso completo del video
@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Funzione per cambiare video
-    const changeVideo = (index, autoplay = false) => {
+    const changeVideo = (index, autoplay = true) => { // Autoplay di default a true
+        clearTimeout(autoplayTimeout); 
         if (isLoading) return;
         isLoading = true;
 
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isLoading = false;
             if (autoplay && isPlaying && canPlayVideo()) {
                 playVideo();
-            }
+            } else if (autoplay && !isPlaying && !videoContainer.classList.contains('awaiting-interaction')) { startAutoplay(); }
         };
 
         videoElement.addEventListener('loadeddata', handleLoad, { once: true });
@@ -85,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const showPlayButton = () => {
-        videoContainer.classList.add('awaiting-interaction');
+        if (!isPlaying) videoContainer.classList.add('awaiting-interaction');
     };
 
     const hidePlayButton = () => {
@@ -104,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 await playPromise;
                 isPlaying = true;
                 hidePlayButton();
-                startAutoplay();
+                startAutoplay(); 
             }
         } catch (error) {
             console.log('Riproduzione video non consentita:', error);
@@ -145,58 +146,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Gestione dell'autoplay
     const startAutoplay = () => {
-        clearInterval(autoplayInterval);
-        if (isPlaying) {
-            autoplayInterval = setInterval(() => {
-                if (!document.hidden && !isLoading && videoElement.paused && canPlayVideo()) {
-                    changeVideo(currentVideoIndex + 1, true);
-                }
-            }, 5000);
-        }
+        clearTimeout(autoplayTimeout);
+        autoplayTimeout = setTimeout(() => {
+            if (!document.hidden && !isLoading) { 
+                changeVideo(currentVideoIndex + 1, true);
+            }
+        }, 5000); 
     };
 
-    // Gestione hover sul carosello
-    const carousel = document.querySelector('.video-carousel');
-    carousel.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
-    carousel.addEventListener('mouseleave', () => {
-        if (isPlaying && !isLoading) {
-            startAutoplay();
-        }
-    });
+    const pauseAutoplay = () => {
+        clearTimeout(autoplayTimeout);
+    };
 
-    // Gestione fine video
-    videoElement.addEventListener('ended', () => {
-        if (!isLoading) {
-            changeVideo(currentVideoIndex + 1, true);
-        }
-    });
-
-    // Gestione errori video
+    // Eventi per la pausa e la ripresa dell'autoplay
+    videoContainer.addEventListener('mouseenter', pauseAutoplay);
+    videoContainer.addEventListener('mouseleave', startAutoplay);
+    videoContainer.addEventListener('touchstart', pauseAutoplay);
+    videoContainer.addEventListener('touchend', startAutoplay);
+    prevButton.addEventListener('click', pauseAutoplay);
+    nextButton.addEventListener('click', pauseAutoplay);
+    indicators.forEach(indicator => indicator.addEventListener('click', pauseAutoplay));
+    videoElement.addEventListener('ended', () => changeVideo(currentVideoIndex + 1, true));
     videoElement.addEventListener('error', () => {
-        console.log('Errore durante il caricamento del video');
+        console.error('Errore durante il caricamento del video.');
         showPlayButton();
         isPlaying = false;
         isLoading = false;
+        changeVideo(currentVideoIndex + 1, true); 
     });
 
-    // Gestione visibilità pagina
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-            clearInterval(autoplayInterval);
-            if (isPlaying) {
-                videoElement.pause();
-            }
-        } else {
-            if (isPlaying && !isLoading && canPlayVideo()) {
-                videoElement.play().catch(() => {
-                    showPlayButton();
-                    isPlaying = false;
-                });
-                startAutoplay();
-            }
+            pauseAutoplay();
+            if (isPlaying) videoElement.pause();
+        } else if (isPlaying && !isLoading && canPlayVideo()) {
+            videoElement.play().catch(() => { 
+                showPlayButton();
+                isPlaying = false;
+            });
+            startAutoplay();
         }
-    });
+    });    
 
     // Inizializzazione
-    changeVideo(0);
+    changeVideo(0, true); // Avvia l'autoplay al caricamento della pagina
 });
